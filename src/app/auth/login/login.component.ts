@@ -20,4 +20,8 @@ export class LoginComponent implements OnInit {
       .login(this.email, this.password)
       .subscribe((user) => this.router.navigateByUrl('/ideas'));
   }
+
+  registration() {
+    this.router.navigateByUrl('/registration');
+  }
 }

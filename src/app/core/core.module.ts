@@ -5,21 +5,17 @@ import { MenuComponent } from './menu/menu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    MenuComponent
-  ],
+  declarations: [HomeComponent, MenuComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule,
   ],
-  exports: [
-    HomeComponent,
-    MenuComponent
-  ]
+  exports: [HomeComponent, MenuComponent],
 })
-export class CoreModule { }
+export class CoreModule {}

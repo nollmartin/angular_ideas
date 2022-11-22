@@ -33,4 +33,11 @@ export class IdeasService {
   deleteIdea(idea: Idea) {
     return this.http.delete<{ id: string }>(`${this._baseUrl}/${idea.id}`);
   }
+
+  createIdea(name: string, description: string) {
+    return this.http.post<Idea>(`${this._baseUrl}`, {
+      name,
+      description,
+    });
+  }
 }

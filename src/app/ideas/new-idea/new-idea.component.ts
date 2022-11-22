@@ -1,15 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
+import { IdeasService } from '../ideas.service';
 
 @Component({
   selector: 'app-new-idea',
   templateUrl: './new-idea.component.html',
-  styleUrls: ['./new-idea.component.scss']
+  styleUrls: ['./new-idea.component.scss'],
 })
 export class NewIdeaComponent implements OnInit {
+  form: FormGroup;
+  isLoading = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private ideasService: IdeasService, private router: Router) {
+    this.form = new FormGroup({
+      name: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+    });
   }
 
+  ngOnInit(): void {}
+
+  submitted() {
+    this.ideasService
+      .createIdea(this.form.value.name, this.form.value.description)
+      .pipe(finalize(() => (this.isLoading = false)))
+      .subscribe(() => {
+        this.isLoading = true;
+        this.router.navigateByUrl('/ideas');
+      });
+  }
 }

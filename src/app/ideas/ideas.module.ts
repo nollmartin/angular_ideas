@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatIconModule,
     MatBadgeModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
 })
 export class IdeasModule {}

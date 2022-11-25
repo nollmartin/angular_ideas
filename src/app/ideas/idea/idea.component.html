@@ -1,1 +1,11 @@
-<p>idea works!</p>
+<div class="ideas-container">
+  <mat-card class="idea">
+    <mat-card-header>
+      <mat-card-title>Title: {{idea?.name}}</mat-card-title>
+      <mat-card-subtitle>Description: {{idea?.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions align="start">
+      <app-vote [idea]="idea" (vote)="toList()"></app-vote>
+    </mat-card-actions>
+  </mat-card>
+</div>

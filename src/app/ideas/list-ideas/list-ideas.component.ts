@@ -10,6 +10,7 @@ import { Idea } from '../models/idea.model';
 })
 export class ListIdeasComponent implements OnInit {
   ideas: Idea[] = [];
+  idea: Idea;
 
   constructor(private ideasService: IdeasService, private router: Router) {}
 
@@ -21,19 +22,15 @@ export class ListIdeasComponent implements OnInit {
     this.ideasService.listIdeas().subscribe((ideas) => (this.ideas = ideas));
   }
 
-  upVote(idea: Idea) {
-    this.ideasService.upvoteIdea(idea).subscribe((_) => this.listIdeas());
-  }
-
-  downVote(idea: Idea) {
-    this.ideasService.downvoteIdea(idea).subscribe((_) => this.listIdeas());
-  }
-
   delete(idea: Idea) {
     this.ideasService.deleteIdea(idea).subscribe((_) => this.listIdeas());
   }
 
   editIdea(idea: Idea) {
     this.router.navigateByUrl(`/ideas/new?id=${idea.id}`);
+  }
+
+  viewIdea(idea: Idea) {
+    this.router.navigateByUrl(`/ideas/${idea.id}`);
   }
 }

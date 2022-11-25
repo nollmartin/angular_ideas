@@ -20,16 +20,16 @@ export class IdeasService {
     return this.http.get<Idea[]>(`${this._baseUrl}`);
   }
 
-  upvoteIdea(idea: Idea) {
+  upvoteIdea(id: string) {
     return this.http.patch<{ id: string }>(
-      `${this._baseUrl}/${idea.id}/upvote`,
+      `${this._baseUrl}/${id}/upvote`,
       null
     );
   }
 
-  downvoteIdea(idea: Idea) {
+  downvoteIdea(id: string) {
     return this.http.patch<{ id: string }>(
-      `${this._baseUrl}/${idea.id}/downvote`,
+      `${this._baseUrl}/${id}/downvote`,
       null
     );
   }

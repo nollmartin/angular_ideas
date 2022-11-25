@@ -5,13 +5,13 @@
           <mat-card-subtitle>{{idea.description}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions align="start">
-          <button mat-button (click)="upVote(idea)"><mat-icon class="mat-18">thumb_up</mat-icon></button>
-          <button mat-button (click)="downVote(idea)">
-            <mat-icon class="mat-18">thumb_down</mat-icon>
-          </button>
+          <app-vote [idea]="idea" (vote)="listIdeas()"></app-vote>
           <button mat-button (click)="editIdea(idea)"><mat-icon>edit</mat-icon></button>
           <button mat-button (click)="delete(idea)">
             <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+          <button mat-button (click)="viewIdea(idea)">
+            <mat-icon>pageview</mat-icon>
           </button>
       </mat-card-actions>
   </mat-card>
